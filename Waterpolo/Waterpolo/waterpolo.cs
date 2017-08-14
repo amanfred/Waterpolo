@@ -14,15 +14,14 @@ namespace Waterpolo
     public partial class Waterpolo : Form
     {
         public static Pool LogicalPool { get; set; }
-        public static Ball LogicalBall { get; set; }
-        private float _rowSize;
-        private float _columnSize;
+        public static Ball LogicalBall { get; set; }       
         private int _inputHeight = 17;
         private int _inputWidth = 25;
         public Waterpolo()
         {
             InitializeComponent();
             LogicalPool = new Pool(_inputHeight, _inputWidth);
+            BallPosition(LogicalPool.Height / 2, LogicalPool.Width / 2);
             LogicalBall = new Ball(LogicalPool, pool);
         }
 
@@ -30,6 +29,11 @@ namespace Waterpolo
         {
             LogicalPool.Paint(sender, e, pool);
             LogicalBall.Paint(e);
+        }
+
+        private void BallPosition(int height, int width)
+        {
+            LogicalPool[height, width] = Constant.Constant.Ball;
         }
     }
 }

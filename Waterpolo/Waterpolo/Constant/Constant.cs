@@ -9,5 +9,6 @@ namespace Waterpolo.Constant
     public static class Constant
     {
         public static string Water = "water";
+        public static string Ball = "ball";
     }
 }

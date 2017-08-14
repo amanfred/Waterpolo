@@ -35,7 +35,7 @@ namespace Waterpolo.Environment
             InitializeGrid();
         }
 
-        private string this[int i, int j]
+        public string this[int i, int j]
         {
             get { return _grid[i, j]; }
             set
@@ -78,13 +78,14 @@ namespace Waterpolo.Environment
                 _paintEventArgs.Graphics.DrawLine(Pen, 0, i * _rowSize, _poolWidth, i * _rowSize);
         }
 
+        
+
         private void DrawWater()
         {
             Size size = new Size(_columnSize, _rowSize);
             Point coordinates = new Point(0, 0);
             Rectangle rectangle = new Rectangle(coordinates, size);
-            _paintEventArgs.Graphics.FillRectangle(new SolidBrush(Color.LightBlue), rectangle);   
-           
+            _paintEventArgs.Graphics.FillRectangle(new SolidBrush(Color.LightBlue), rectangle);              
                    for (int i = 0; i < Height; i++)
                    {
                        for (int j = 0; j < Width; j++)
@@ -96,7 +97,6 @@ namespace Waterpolo.Environment
                            _paintEventArgs.Graphics.FillRectangle(new SolidBrush(Color.LightBlue), rectangle);
                        }
                    }
-
         }
     }
 }
