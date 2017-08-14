@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Constant\Constant.cs" />
     <Compile Include="Environment\Ball.cs" />
+    <Compile Include="Environment\Player.cs" />
     <Compile Include="Environment\Pool.cs" />
     <Compile Include="Environment\WaterObject.cs" />
     <Compile Include="waterpolo.cs">

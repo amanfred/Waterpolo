@@ -10,5 +10,6 @@ namespace Waterpolo.Constant
     {
         public static string Water = "water";
         public static string Ball = "ball";
+        public static string HomePlayer = "homePlayer";
     }
 }

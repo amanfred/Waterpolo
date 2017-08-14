@@ -20,7 +20,8 @@ namespace Waterpolo.Environment
         protected int panelPoolWidth;
         protected int rowSize;
         protected int columnSize;       
-        protected Rectangle rectangle;        
+        protected Rectangle rectangle;
+        protected double sizeDivider;
         protected Pool logicalPool { get; set; }
 
         public WaterObject(Pool p, Panel panelPool)
@@ -33,10 +34,37 @@ namespace Waterpolo.Environment
             columnSize = panelPool.Width / p.Width;
         }
 
-        public abstract void Paint(PaintEventArgs e);
+        public virtual void Paint(PaintEventArgs e)
+        {
+            paintEventArgs = e;
+            Draw();
+        }
         protected abstract void Draw();
-        protected abstract void setPosition(int width, int height);
-        protected abstract void setSize();
+        protected virtual void SetPosition()
+        {
+            position.X = Convert.ToInt32((position.X * columnSize) + columnSize * sizeDivider);
+            position.Y = Convert.ToInt32((position.Y * rowSize) + rowSize * sizeDivider);
+        }
+        protected virtual void SetSize()
+        {            
+            size = new Size(Convert.ToInt32(columnSize * sizeDivider), Convert.ToInt32(rowSize * sizeDivider));
+        }
+        public virtual void GetPosition(string namedObject)
+        {
+            for (int i = 0; i < logicalPool.Height; i++)
+            {
+                for (int j = 0; j < logicalPool.Width; j++)
+                {
+                    if (logicalPool[i, j].Contains(namedObject))
+                    {
+                        position.X = j;
+                        position.Y = i;
+                        goto Finish;
+                    }
+                }
+            }
+            Finish:;
+        }
 
     }
 }
