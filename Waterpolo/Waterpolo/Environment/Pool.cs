@@ -15,7 +15,7 @@ namespace Waterpolo.Environment
         public int Height { get; set; }
         public int Width { get; set; }   
         private int _poolHeight, _poolWidth;
-        private string[,] _grid;
+        public string[,] Grid { get; set; }
         private int _rowSize;
         private int _columnSize;
         public Color GridColor { get; set; }
@@ -27,7 +27,7 @@ namespace Waterpolo.Environment
         {
             Height = height;
             Width = width;
-            _grid = new string[height, width];
+            Grid = new string[height, width];
             //set default colors
             GridColor = Color.Black;
             WaterColor = Color.LightBlue;
@@ -37,20 +37,20 @@ namespace Waterpolo.Environment
 
         public string this[int i, int j]
         {
-            get { return _grid[i, j]; }
+            get { return Grid[i, j]; }
             set
             {
-                _grid[i, j] = System.String.Format("{0}", value);
+                Grid[i, j] = System.String.Format("{0}", value);
             }
         }
 
-        private void InitializeGrid()
+        public void InitializeGrid()
         {
             for (int i = 0; i < Height; i++)
             {
                 for (int j = 0; j < Width; j++)
                 {
-                    _grid[i, j] = Constant.Constant.Water;
+                    Grid[i, j] = Constant.Constant.Water;
                 }
             }
         }

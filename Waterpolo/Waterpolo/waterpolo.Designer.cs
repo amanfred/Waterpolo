@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pool = new System.Windows.Forms.Panel();
+            this.butttonBallCoordinates = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pool
@@ -39,11 +40,22 @@
             this.pool.TabIndex = 0;
             this.pool.Paint += new System.Windows.Forms.PaintEventHandler(this.Paint);
             // 
+            // butttonBallCoordinates
+            // 
+            this.butttonBallCoordinates.Location = new System.Drawing.Point(1042, 46);
+            this.butttonBallCoordinates.Name = "butttonBallCoordinates";
+            this.butttonBallCoordinates.Size = new System.Drawing.Size(95, 23);
+            this.butttonBallCoordinates.TabIndex = 1;
+            this.butttonBallCoordinates.Text = "Ball coordinates";
+            this.butttonBallCoordinates.UseVisualStyleBackColor = true;
+            this.butttonBallCoordinates.Click += new System.EventHandler(this.butttonBallCoordinates_Click);
+            // 
             // Waterpolo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1252, 873);
+            this.Controls.Add(this.butttonBallCoordinates);
             this.Controls.Add(this.pool);
             this.Name = "Waterpolo";
             this.Text = "Waterpolo game";
@@ -54,6 +66,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pool;
+        private System.Windows.Forms.Button butttonBallCoordinates;
     }
 }
 

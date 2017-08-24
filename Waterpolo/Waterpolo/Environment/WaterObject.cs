@@ -22,7 +22,7 @@ namespace Waterpolo.Environment
         protected int columnSize;       
         protected Rectangle rectangle;
         protected double sizeDivider;
-        protected Pool logicalPool { get; set; }
+        public Pool logicalPool { get; set; }
 
         public WaterObject(Pool p, Panel panelPool)
         {
